@@ -7,6 +7,7 @@ from markdown import markdown
 
 load_dotenv()
 
+app_banner = os.environ.get("APP_BANNER")
 app_title = os.environ.get("APP_TITLE")
 app_description = os.environ.get("APP_DESCRIPTION")
 templates_base_dir = os.environ.get("TEMPLATES_BASE_FOLDER")
@@ -14,12 +15,14 @@ enabled_templates = os.environ.get("ENABLED_TEMPLATES").split("|")
 enabled_frameworks = os.environ.get("ENABLED_FRAMEWORKS")
 default_framework = os.environ.get("DEFAULT_FRAMEWORK")
 
-st.set_page_config(page_title=app_title, page_icon = "", layout = 'wide', initial_sidebar_state = 'expanded')
+st.set_page_config(page_title=app_title, page_icon = app_banner, layout = 'wide', initial_sidebar_state = 'expanded')
 st.markdown(markdown.hide_streamlit_style, unsafe_allow_html=True)
 
-st.title(app_title)
-st.write(app_description)
-st.info('Feedback and questions help make you better at what you do! Reach me at [hello@nidhinradh.me](mailto:hello@nidhinradh.me) with your feedback and suggestions.')
+col1, col2 = st.columns([2, 4])
+col1.image(app_banner)
+col2.title(app_title)
+col2.write(app_description)
+col2.info('Feedback and questions help make you better at what you do! Reach me at [hello@nidhinradh.me](mailto:hello@nidhinradh.me) with your feedback and suggestions.')
 
 configs = {}
 code_dir_path = ""
