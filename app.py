@@ -18,11 +18,11 @@ default_framework = os.environ.get("DEFAULT_FRAMEWORK")
 st.set_page_config(page_title=app_title, page_icon = app_banner, layout = 'wide', initial_sidebar_state = 'expanded')
 st.markdown(markdown.hide_streamlit_style, unsafe_allow_html=True)
 
-col1, col2 = st.columns([2, 4])
-col1.image(app_banner)
-col2.title(app_title)
-col2.write(app_description)
-col2.info('Feedback and questions help make you better at what you do! Reach me at [hello@nidhinradh.me](mailto:hello@nidhinradh.me) with your feedback and suggestions.')
+col1, col2 = st.columns([4, 2])
+col1.title(app_title)
+col1.write(app_description)
+col1.info('Feedback and questions help make you better at what you do! Reach me at [hello@nidhinradh.me](mailto:hello@nidhinradh.me) with your feedback and suggestions.')
+col2.image(app_banner)
 
 configs = {}
 code_dir_path = ""
