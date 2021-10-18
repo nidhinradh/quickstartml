@@ -1,0 +1,123 @@
+import pandas as pd
+{% if is_normalization %}
+from sklearn.preprocessing import scale
+{% endif %}
+{% if train_test_method == "Train-Test Split" %}
+from sklearn.model_selection import train_test_split
+{% endif %}
+{% if selected_model == "SVM" %}
+from sklearn import svm
+{% endif %}
+{% if selected_model == "Stochastic Gradient Descent" %}
+from sklearn.linear_model import SGDClassifier
+{% endif %}
+{% if selected_model == "Logistic Regression" %}
+from sklearn.linear_model import LogisticRegression
+{% endif %}
+{% if selected_model == "Random Forest Classifier" %}
+from sklearn.ensemble import RandomForestClassifier
+{% endif %}
+{% if selected_model == "K-Neighbors Classifier" %}
+from sklearn.neighbors import KNeighborsClassifier
+{% endif %}
+{% if performance_evaluation_methods == "Accuracy Score" %}
+from sklearn.metrics import accuracy_score
+{% endif %}
+{% if performance_evaluation_methods == "Confusion Matrix" %}
+from sklearn.metrics import mean_squared_error
+{% endif %}
+
+DATASET_URL = '' # set the url or local reference
+{% if train_test_method == "Seperate Test Dataset" %}
+TEST_DATASET_URL = '' # set the url or local reference
+{% endif %}
+FEATURE_NAME = '' # set target feature name
+{% if train_test_method == "Train-Test Split" %}
+TEST_SIZE = {{ split_percentage }}
+{% endif %}
+
+def load_data(URL):
+    data = pd.read_csv(URL, sep=';') # implement the custom logic here
+    return data
+
+# load the data and separate out the target feature data
+data = load_data(DATASET_URL)
+y = data[FEATURE_NAME]
+X = data.drop(FEATURE_NAME, axis=1)
+{% if train_test_method == "Seperate Test Dataset" %}
+test_data = load_data(TEST_DATASET_URL)
+y_test = test_data[FEATURE_NAME]
+X_test = test_data.drop(FEATURE_NAME, axis=1)
+{% endif %}
+{% if is_normalization %}
+# Normalize the data
+X = scale(X)
+y = scale(y)
+{% endif %}
+{% if is_normalization and train_test_method == "Seperate Test Dataset" %}
+# Normalize the test data
+X_test = scale(X_test)
+y_test = scale(y_test)
+{% endif %}
+
+{% if train_test_method == "Train-Test Split" %}
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE, random_state=123, stratify=y)
+{% endif %}
+{% if selected_model == "SVM" %}
+# Create SVM classification object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
+classifier = svm.svc(random_state={{random_state}})
+{% endif %}
+{% if selected_model == "Stochastic Gradient Descent" %}
+# Create SGDClassifier object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html
+classifier = SGDClassifier(random_state={{random_state}})
+{% endif %}
+{% if selected_model == "Logistic Regression" %}
+# Create LogisticRegression object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+regressor = LogisticRegression()
+{% endif %}
+{% if selected_model == "Random Forest Classifier" %}
+# Create RandomForestClassifier object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+classifier = RandomForestClassifier(random_state={{random_state}})
+{% endif %}
+{% if selected_model == "K-Neighbors Classifier" %}
+# Create KNeighborsClassifier object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+classifier = KNeighborsClassifier(n_neighbors={{n_neighbors}})
+{% endif %}
+
+{% if train_test_method == "Train-Test Split" %}
+{% if selected_model != "Logistic Regression" %}
+classifier.fit(X_train, y_train)
+{% else %}
+regressor.fit(X_train, y_train)
+{% endif %}
+{% else %}
+{% if selected_model != "Logistic Regression" %}
+classifier.fit(X, y)
+{% else %}
+regressor.fit(X, y)
+{% endif %}
+{% endif %}
+
+# load the data and separate out the target feature data
+test_data = load_test_data()
+y = data[FEATURE_NAME]
+X = data.drop(FEATURE_NAME, axis=1)
+
+# Make predictions using the testing set
+{% if selected_model != "Logistic Regression" %}
+y_predict = classifier.predict(X_test)
+{% else %}
+y_predict = regressor.predict(X_test)
+{% endif %}
+{% if performance_evaluation_methods == "Accuracy Score" %}
+accuracy = accuracy_score(y_test, y_predict)
+{% endif %}
+{% if performance_evaluation_methods == "Confusion Matrix" %}
+cfm = confusion_matrix(y_test, y_predict)
+{% endif %}

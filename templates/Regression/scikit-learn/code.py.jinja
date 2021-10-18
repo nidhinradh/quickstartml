@@ -1,0 +1,101 @@
+import pandas as pd
+{% if is_normalization %}
+from sklearn.preprocessing import scale
+{% endif %}
+{% if train_test_method == "Train-Test Split" %}
+from sklearn.model_selection import train_test_split
+{% endif %}
+{% if selected_model == "Linear Regression" %}
+from sklearn.linear_model import LinearRegression
+{% endif %}
+{% if selected_model == "Decision Tree" %}
+from sklearn.tree import DecisionTreeRegressor
+{% endif %}
+{% if selected_model == "Random Forest Classifier" %}
+from sklearn.ensemble import RandomForestRegressor
+{% endif %}
+{% if performance_evaluation_methods == "Mean Absolute Error" %}
+from sklearn.metrics import mean_absolute_error
+{% endif %}
+{% if performance_evaluation_methods == "Mean Squared Error" %}
+from sklearn.metrics import mean_squared_error
+{% endif %}
+{% if performance_evaluation_methods == "R2 Score" %}
+from sklearn.metrics import r2_score
+{% endif %}
+
+
+DATASET_URL = '' # set the url or local reference
+{% if train_test_method == "Seperate Test Dataset" %}
+TEST_DATASET_URL = '' # set the url or local reference
+{% endif %}
+FEATURE_NAME = '' # set target feature name
+{% if train_test_method == "Train-Test Split" %}
+TEST_SIZE = {{ split_percentage }}
+{% endif %}
+
+def load_data(URL):
+    data = pd.read_csv(URL, sep=';') # implement the custom logic here
+    return data
+
+# load the data and separate out the target feature data
+data = load_data(DATASET_URL)
+y = data[FEATURE_NAME]
+X = data.drop(FEATURE_NAME, axis=1)
+{% if train_test_method == "Seperate Test Dataset" %}
+test_data = load_data(TEST_DATASET_URL)
+y_test = test_data[FEATURE_NAME]
+X_test = test_data.drop(FEATURE_NAME, axis=1)
+{% endif %}
+{% if is_normalization %}
+# Normalize the data
+X = scale(X)
+y = scale(y)
+{% endif %}
+{% if is_normalization and train_test_method == "Seperate Test Dataset" %}
+# Normalize the test data
+X_test = scale(X_test)
+y_test = scale(y_test)
+{% endif %}
+
+{% if train_test_method == "Train-Test Split" %}
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE, random_state=123, stratify=y)
+{% endif %}
+{% if selected_model == "Linear Regression" %}
+# Create LinearRegression object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+regressor = LinearRegression()
+{% endif %}
+{% if selected_model == "Decision Tree" %}
+# Create DecisionTreeRegressor object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html
+regressor = DecisionTreeRegressor(random_state={{random_state}})
+{% endif %}
+{% if selected_model == "Random Forest Classifier" %}
+# Create RandomForestRegressor object and train
+# Visit the following link for complete documentation, https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
+regressor = RandomForestRegressor(max_depth = {{max_depth}} random_state = {{random_state}})
+{% endif %}
+{% if train_test_method == "Train-Test Split" %}
+regressor.fit(X_train, y_train)
+{% else %}
+regressor.fit(X, y)
+{% endif %}
+
+# load the data and separate out the target feature data
+test_data = load_test_data()
+y = data[FEATURE_NAME]
+X = data.drop(FEATURE_NAME, axis=1)
+
+# Make predictions using the testing set
+y_predict = regressor.predict(X_test)
+{% if performance_evaluation_methods == "Mean Absolute Error" %}
+mae = mean_absolute_error(y_test, y_predict)
+{% endif %}
+{% if performance_evaluation_methods == "Mean Squared Error" %}
+mse = mean_squared_error(y_test, y_predict)
+{% endif %}
+{% if performance_evaluation_methods == "R2 Score" %}
+r2score = r2_score(y_true, y_predict)
+{% endif %}
