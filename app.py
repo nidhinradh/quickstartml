@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
 import utils
-from markdown import markdown
 
 load_dotenv()
 
@@ -16,7 +15,6 @@ enabled_frameworks = os.environ.get("ENABLED_FRAMEWORKS")
 default_framework = os.environ.get("DEFAULT_FRAMEWORK")
 
 st.set_page_config(page_title=app_title, page_icon = app_banner, layout = 'wide', initial_sidebar_state = 'expanded')
-st.markdown(markdown.hide_streamlit_style, unsafe_allow_html=True)
 
 st.title(app_title)
 title_col, banner_col = st.columns([4, 2])
