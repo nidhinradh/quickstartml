@@ -19,9 +19,9 @@ st.set_page_config(page_title=app_title, page_icon = app_banner, layout = 'wide'
 st.markdown(markdown.hide_streamlit_style, unsafe_allow_html=True)
 
 col1, col2 = st.columns([5, 3])
-col2.title(app_title)
-col2.write(app_description)
-col2.info('''
+col1.title(app_title)
+col1.write(app_description)
+col1.info('''
 Feedback and questions help make you better at what you do!
 ###### 📬 Reach me at
 [![Website Badge](http://img.shields.io/badge/-Website-blue?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://nidhinradh.me/)](https://nidhinradh.me/) 
@@ -31,7 +31,7 @@ Feedback and questions help make you better at what you do!
 [![Email Badge](https://img.shields.io/badge/-Email-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:hello@nidhinradh.me)](mailto:hello@nidhinradh.me)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-2781F4?style=flat-square&logo=LinkedIn&logoColor=white&link=https://www.linkedin.com/in/nidhinradh/)](https://www.linkedin.com/in/nidhinradh/)
 ''')
-col1.image(app_banner)
+col2.image(app_banner)
 
 configs = {}
 code_dir_path = ""
