@@ -18,11 +18,20 @@ default_framework = os.environ.get("DEFAULT_FRAMEWORK")
 st.set_page_config(page_title=app_title, page_icon = app_banner, layout = 'wide', initial_sidebar_state = 'expanded')
 st.markdown(markdown.hide_streamlit_style, unsafe_allow_html=True)
 
-col1, col2 = st.columns([4, 2])
-col1.title(app_title)
-col1.write(app_description)
-col1.info('Feedback and questions help make you better at what you do! Reach me at [hello@nidhinradh.me](mailto:hello@nidhinradh.me) with your feedback and suggestions.')
-col2.image(app_banner)
+col1, col2 = st.columns([5, 3])
+col2.title(app_title)
+col2.write(app_description)
+col2.info('''
+Feedback and questions help make you better at what you do!
+###### 📬 Reach me at
+[![Website Badge](http://img.shields.io/badge/-Website-blue?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://nidhinradh.me/)](https://nidhinradh.me/) 
+[![Instagram](http://img.shields.io/badge/-Instagram-purple?style=flat-square&logo=Instagram&logoColor=white&link=https://instagram.com/nidhinradh/)](https://instagram.com/nidhinradh/)
+[![Facebook](http://img.shields.io/badge/-Facebook-blue?style=flat-square&logo=Facebook&logoColor=white&link=https://facebook.com/nidhinradh/)](https://facebook.com/nidhinradh/)
+[![Github Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/nidhinradh/)](https://github.com/nidhinradh/) 
+[![Email Badge](https://img.shields.io/badge/-Email-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:hello@nidhinradh.me)](mailto:hello@nidhinradh.me)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-2781F4?style=flat-square&logo=LinkedIn&logoColor=white&link=https://www.linkedin.com/in/nidhinradh/)](https://www.linkedin.com/in/nidhinradh/)
+''')
+col1.image(app_banner)
 
 configs = {}
 code_dir_path = ""
