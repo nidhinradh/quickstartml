@@ -3,6 +3,11 @@ echo "\
 [server]\n\
 headless = true\n\
 port = $PORT\n\
-enableCORS = false\n\
+baseUrlPath = "herokuapp.com"\n\
+enableCORS = true\n\
+[browser]\n\
+serverAddress = "quickstartml.herokuapp.com"\n\
+gatherUsageStats = true\n\
+serverPort = $PORT\n\
 \n\
 " > ~/.streamlit/config.toml
