@@ -63,3 +63,15 @@ code = template.render(header=utils.code_header, notebook=False, **configs)
 if(len(code) > 0):
     utils.download_button(code, selected_model_type+"_"+selected_framework+".py", "Download Code")
     st.code(code)
+
+st.info('''
+###### Credits
+Here's a list of projects that inspired me to create this app. 
+
+[Traingenerator](https://github.com/jrieke/traingenerator) by [Johannes Rieke](https://github.com/jrieke) 
+
+[Pythonizr](https://github.com/akashp1712/pythonizr) by [Akash Panchal](https://github.com/akashp1712) 
+
+
+The robot illustration is by [Pixeltrue Packs](https://www.pixeltrue.com/)
+''')
