@@ -3,7 +3,6 @@ echo "\
 [server]\n\
 headless = true\n\
 port = $PORT\n\
-baseUrlPath = \"herokuapp.com\"\n\
 enableCORS = true\n\
 [browser]\n\
 serverAddress = \"quickstartml.herokuapp.com\"\n\
