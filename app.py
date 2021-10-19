@@ -18,10 +18,10 @@ default_framework = os.environ.get("DEFAULT_FRAMEWORK")
 st.set_page_config(page_title=app_title, page_icon = app_banner, layout = 'wide', initial_sidebar_state = 'expanded')
 st.markdown(markdown.hide_streamlit_style, unsafe_allow_html=True)
 
-col1, col2 = st.columns([5, 3])
-col1.title(app_title)
-col1.write(app_description)
-col1.info('''
+st.title(app_title)
+title_col, banner_col = st.columns([4, 2])
+title_col.write(app_description)
+title_col.info('''
 Feedback and questions help make you better at what you do!
 ###### 📬 Reach me at
 [![Website Badge](http://img.shields.io/badge/-Website-blue?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://nidhinradh.me/)](https://nidhinradh.me/) 
@@ -30,8 +30,10 @@ Feedback and questions help make you better at what you do!
 [![Github Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/nidhinradh/)](https://github.com/nidhinradh/) 
 [![Email Badge](https://img.shields.io/badge/-Email-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:hello@nidhinradh.me)](mailto:hello@nidhinradh.me)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-2781F4?style=flat-square&logo=LinkedIn&logoColor=white&link=https://www.linkedin.com/in/nidhinradh/)](https://www.linkedin.com/in/nidhinradh/)
+###### Or
+[![Buy Me A Coffee](https://img.shields.io/badge/-Buy%20Me%20A%20Coffee-f75276?style=flat-square&logo=BuyMeACoffee&logoColor=white&link=https://www.buymeacoffee.com/nidhinradh/)](https://www.buymeacoffee.com/nidhinradh/)
 ''')
-col2.image(app_banner)
+banner_col.image(app_banner)
 
 configs = {}
 code_dir_path = ""
@@ -63,33 +65,3 @@ code = template.render(header=utils.code_header, notebook=False, **configs)
 if(len(code) > 0):
     utils.download_button(code, selected_model_type+"_"+selected_framework+".py", "Download Code")
     st.code(code)
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
-#st.sidebar.title(variables.sidebar_title)
-#st.sidebar.subheader(variables.sidebar_model_type_subheader)
-#selected_model_type = st.sidebar.selectbox(variables.sidebar_model_type_selectbox_label, variables.sidebar_model_type_selectbox_values)
-
-#st.sidebar.subheader(variables.sidebar_pre_processing_subheader)
-#is_data_loading =  st.sidebar.checkbox(variables.sidebar_data_loading_checkbox_label, value=True)
-#is_normalization =  st.sidebar.checkbox(variables.sidebar_normalization_checkbox_label, value=False)
-#is_train_test_split =  st.sidebar.checkbox(variables.sidebar_train_test_split_checkbox_label, value=False)
-
-#st.sidebar.subheader(variables.sidebar_model_subheader)
-#selected_model = st.sidebar.selectbox(variables.sidebar_models_selectbox_label, variables.sidebar_models_selectbox_values[selected_model_type])
-
-#st.sidebar.subheader(variables.sidebar_post_processing_subheader)
-
-#st.sidebar.selectbox(variables.sidebar_post_processing_values[selected_model_type]["label"], variables.sidebar_post_processing_values[selected_model_type]["values"])
-###
