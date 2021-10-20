@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from importlib import util
 import streamlit as st
 import os
@@ -97,6 +98,7 @@ class App:
             loader=FileSystemLoader(self.code_dir_path),
             trim_blocks=True,
             lstrip_blocks=True,
+            autoescape=True,
         )
         template = env.get_template(self.templates_file_name)
         code = template.render(

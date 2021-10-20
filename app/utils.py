@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import importlib.util
 import math
 import base64

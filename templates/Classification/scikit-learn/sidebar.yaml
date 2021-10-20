@@ -40,7 +40,7 @@ sidebar:
       enable_when:
          variable_name: selected_model
          condition: in
-         values:  
+         values:
           - SVM
           - Stochastic Gradient Descent
           - Random Forest Classifier
@@ -52,7 +52,7 @@ sidebar:
       enable_when:
          variable_name: selected_model
          condition: in
-         values:  
+         values:
           - K-Neighbors Classifier
     - type: sub_heading
       value: Post-processing
