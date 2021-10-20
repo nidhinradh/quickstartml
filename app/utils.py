@@ -7,7 +7,6 @@ import uuid
 
 
 class Utils:
-    
     @staticmethod
     def import_from_file(module_name, filepath):
         spec = importlib.util.spec_from_file_location(module_name, filepath)
@@ -20,17 +19,19 @@ class Utils:
         seperator_len = (75 - len(text)) / 2
         seperator_len_left = math.floor(seperator_len)
         seperator_len_right = math.ceil(seperator_len)
-        return f"# {'-' * seperator_len_left} {text} {'-' * seperator_len_right}"
+        return (
+            f"# {'-' * seperator_len_left} {text} {'-' * seperator_len_right}"
+        )
 
     @staticmethod
     def download_button(object_to_download, download_filename, button_text):
         try:
             b64 = base64.b64encode(object_to_download.encode()).decode()
-        except AttributeError as e:
+        except AttributeError:
             b64 = base64.b64encode(object_to_download).decode()
         button_uuid = str(uuid.uuid4()).replace("-", "")
         button_id = re.sub("\d+", "", button_uuid)
-        custom_css = f""" 
+        custom_css = f"""
             <style>
                 #{button_id} {{
                     display: inline-flex;
@@ -46,7 +47,7 @@ class Utils:
                     border-style: solid;
                     border-color: rgb(230, 234, 241);
                     border-image: initial;
-                }} 
+                }}
                 #{button_id}:hover {{
                     border-color: rgb(246, 51, 102);
                     color: rgb(246, 51, 102);
