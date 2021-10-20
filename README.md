@@ -2,6 +2,7 @@
 
 Quickstart ML is a tool to generate boilerplate code for your machine learning projects.
 
+![Alt Text](./static/screen-capture.gif)
 ---
 ## Try it out
 
