@@ -21,3 +21,7 @@ repos:
     rev: '1.7.0'
     hooks:
     - id: bandit
+-   repo: https://github.com/thibaudcolas/curlylint
+    rev: 'v0.13.0'
+    hooks:
+    -   id: curlylint
