@@ -9,7 +9,6 @@ Quickstart ML is a tool to generate boilerplate code for your machine learning p
 
 ---
 # Feedback
----
 
 Feedback and questions help make you better at what you do!
 ### 📬 Reach me at
