@@ -1,0 +1,64 @@
+sidebar:
+    - type: sub_heading
+      value: Pre-processing
+    - type: checkbox
+      label: Normalization
+      default: True
+      variable_name: is_normalization
+    - type: radio
+      label: Splitting Data
+      values:
+        - Seperate Test Dataset
+        - Train-Test Split
+      variable_name: train_test_method
+    - type: slider
+      label: Test Size
+      min: 0.01
+      max: 0.99
+      default: 0.20
+      variable_name: split_percentage
+      enable_when:
+         variable_name: train_test_method
+         condition: is
+         value: Train-Test Split
+    - type: sub_heading
+      value: Model
+    - type: selectbox
+      label: Select Model
+      values:
+        - SVM
+        - Stochastic Gradient Descent
+        - Logistic Regression
+        - Random Forest Classifier
+        - K-Neighbors Classifier
+      variable_name: selected_model
+    - type: number_input
+      label: Random State
+      default: 0
+      step: 1
+      variable_name: random_state
+      enable_when:
+         variable_name: selected_model
+         condition: in
+         values:  
+          - SVM
+          - Stochastic Gradient Descent
+          - Random Forest Classifier
+    - type: number_input
+      label: Neighbors
+      default: 5
+      step: 1
+      variable_name: n_neighbors
+      enable_when:
+         variable_name: selected_model
+         condition: in
+         values:  
+          - K-Neighbors Classifier
+    - type: sub_heading
+      value: Post-processing
+    - type: selectbox
+      label: Select Performance Evaluation Method
+      values:
+        - Accuracy Score
+        - Confusion Matrix
+      variable_name: performance_evaluation_methods

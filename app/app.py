@@ -3,6 +3,7 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
+from streamlit import config
 from utils import Utils
 
 
@@ -20,6 +21,7 @@ class App:
         self.enabled_templates = os.environ.get("ENABLED_TEMPLATES").split("|")
         self.enabled_frameworks = os.environ.get("ENABLED_FRAMEWORKS")
         self.templates_file_name = os.environ.get("TEMPLATE_FILE_NAME")
+        self.sidebar_file_name = os.environ.get("SIDEBAR_FILE_NAME")
         self.default_framework = os.environ.get("DEFAULT_FRAMEWORK")
         self.feedback_md_file = os.environ.get("FEEDBACK_MD_FILE")
         self.credits_md_file = os.environ.get("CREDITS_MD_FILE")
@@ -52,8 +54,8 @@ class App:
             frameworks = sorted(frameworks, key=lambda framework: framework.lower())
             self.selected_framework = st.selectbox(self.sidebar_framework_menu_selectbox_lebel, frameworks, index= 0 if self.default_framework not in frameworks else frameworks.index(self.default_framework))
             self.code_dir_path = os.path.join(selected_template_path, self.selected_framework)
-            config_sidebar = utils.import_from_file(module_name="config_sidebar", filepath=os.path.join(self.code_dir_path, "config.py"))
-            self.configs = config_sidebar.show()
+            config_sidebar = utils.import_from_file(module_name="config_sidebar", filepath="./app/sidebar.py")
+            self.configs = config_sidebar.render(config_path=os.path.join(self.code_dir_path, self.sidebar_file_name))
 
     def load_code(self):
         env = Environment(
