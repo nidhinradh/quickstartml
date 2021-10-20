@@ -14,7 +14,7 @@ Quickstart ML is a tool to generate boilerplate code for your machine learning p
 Feedback and questions help make you better at what you do!
 
 ### Chat on
-[![Glitter Badge](http://img.shields.io/badge/-Glitter-green?style=flat-square&logo=Chat&logoColor=white&link=https://gitter.im/nidhinradh/quickstartml/)](https://gitter.im/nidhinradh/quickstartml/)
+[![Glitter Badge](http://img.shields.io/badge/-Gitter-green?style=flat-square&logo=Gitter&logoColor=white&link=https://gitter.im/nidhinradh/quickstartml/)](https://gitter.im/nidhinradh/quickstartml/)
 ### or reach me at 
 [![Website Badge](http://img.shields.io/badge/-Website-blue?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://nidhinradh.me/)](https://nidhinradh.me/) 
 [![Instagram](http://img.shields.io/badge/-Instagram-purple?style=flat-square&logo=Instagram&logoColor=white&link=https://instagram.com/nidhinradh/)](https://instagram.com/nidhinradh/)
