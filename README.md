@@ -3,6 +3,13 @@
 Quickstart ML is a tool to generate boilerplate code for your machine learning projects.
 
 ---
+# Try it out
+
+### [quickstartml.herokuapp.com](https://quickstartml.herokuapp.com)
+
+---
+# Feedback
+---
 
 Feedback and questions help make you better at what you do!
 ### 📬 Reach me at
