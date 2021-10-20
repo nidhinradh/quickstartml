@@ -1,14 +1,9 @@
 # Quickstart ML
 
 Quickstart ML is a tool to generate boilerplate code for your machine learning projects.
-![Quickstart ML Demo Screen Recording](./static/screen-capture.gif)
----
-## Try it out
 
-### [quickstartml.herokuapp.com](https://quickstartml.herokuapp.com)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge&logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
----
-## Technology Stack
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Streamlit](https://img.shields.io/badge/streamlit-F63366?style=for-the-badge&logo=streamlit&logoColor=ffdd54)
 ![Flake8](https://img.shields.io/badge/jinja-white?style=for-the-badge&logo=jinja&logoColor=red)
@@ -20,6 +15,11 @@ Quickstart ML is a tool to generate boilerplate code for your machine learning p
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+---
+## Try it out
+
+### [quickstartml.herokuapp.com](https://quickstartml.herokuapp.com)
+![Quickstart ML Demo Screen Recording](./static/screen-capture.gif)
 ---
 ## Feedback
 
