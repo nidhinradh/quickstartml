@@ -38,7 +38,7 @@ sidebar:
       enable_when:
          variable_name: selected_model
          condition: in
-         values:  
+         values:
           - Decision Tree
           - Random Forest Classifier
     - type: number_input
@@ -49,7 +49,7 @@ sidebar:
       enable_when:
          variable_name: selected_model
          condition: in
-         values:  
+         values:
           -  Random Forest Classifier
     - type: sub_heading
       value: Post-processing
