@@ -48,5 +48,3 @@ Here's a list of projects that inspired me to create this app.
 
 
 The robot illustration is by [Pixeltrue Packs](https://www.pixeltrue.com/)
-
----
