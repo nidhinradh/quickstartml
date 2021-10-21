@@ -2,11 +2,12 @@
 
 Quickstart ML is a tool to generate boilerplate code for your machine learning projects.
 
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge&logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge&logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Release-date](https://img.shields.io/github/last-commit/nidhinradh/quickstartml?style=for-the-badge)](https://img.shields.io/github/last-commit/nidhinradh/quickstartml?style=for-the-badge)
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Streamlit](https://img.shields.io/badge/streamlit-F63366?style=for-the-badge&logo=streamlit&logoColor=ffdd54)
-![Flake8](https://img.shields.io/badge/jinja-white?style=for-the-badge&logo=jinja&logoColor=red)
+![Jinja](https://img.shields.io/badge/jinja-red?style=for-the-badge&logo=jinja&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
