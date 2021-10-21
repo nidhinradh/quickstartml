@@ -8,6 +8,7 @@ enableCORS = true\n\
 serverAddress = \"quickstartml.herokuapp.com\"\n\
 gatherUsageStats = true\n\
 serverPort = $PORT\n\
+enableWebsocketCompression = false\n\
 [theme]\n\
 primaryColor = \"#F63366\"\n\
 backgroundColor = \"#FFFFFF\"\n\
