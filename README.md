@@ -3,7 +3,6 @@
 Quickstart ML is a tool to generate boilerplate code for your machine learning projects.
 
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge&logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![Release-date](https://img.shields.io/github/last-commit/nidhinradh/quickstartml?style=for-the-badge)](https://img.shields.io/github/last-commit/nidhinradh/quickstartml?style=for-the-badge)
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Streamlit](https://img.shields.io/badge/streamlit-F63366?style=for-the-badge&logo=streamlit&logoColor=ffdd54)
